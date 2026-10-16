@@ -19,7 +19,13 @@ def secante(f, x0, x1, tol=1e-6, max_iter=100):
         
     return x1, max_iter, error
 
-caso = CASOS_DE_PRUEBA["Exponencial"]
-raiz, iteraciones, error = secante(caso["f"], caso["x0"], caso["x1"])
-print(f"Secante ({caso['categoria']}):")
-print(f"Raíz: {raiz:.6f} | Iteraciones: {iteraciones} | Error: {error:.2e}\n")
+print("=== MÉTODO DE LA SECANTE ===")
+for nombre, caso in CASOS_DE_PRUEBA.items():
+    print(f"\n{caso['categoria']} -> {caso['expresion']}")
+    
+    raiz, iteraciones, error = secante(caso["f"], caso["x0"], caso["x1"])
+    
+    if raiz is not None:
+        print(f"Raíz: {raiz:.6f} | Iteraciones: {iteraciones} | Error: {error:.2e}")
+    else:
+        print("Resultado: Falló (división por cero).")

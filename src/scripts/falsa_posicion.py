@@ -20,8 +20,18 @@ def falsa_posicion(f, a, b, tol=1e-6, max_iter=100):
             
     return c, max_iter, error
 
-caso = CASOS_DE_PRUEBA["Poli_Simple"]
-a, b = caso["intervalo"]
-raiz, iteraciones, error = falsa_posicion(caso["f"], a, b)
-print(f"Falsa Posición ({caso['categoria']}):")
-print(f"Raíz: {raiz:.6f} | Iteraciones: {iteraciones} | Error: {error:.2e}\n")
+print("=== MÉTODO DE FALSA POSICIÓN ===")
+for nombre, caso in CASOS_DE_PRUEBA.items():
+    print(f"\n{caso['categoria']} -> {caso['expresion']}")
+    
+    if caso["intervalo"] is None:
+        print("Resultado: No aplica (no tiene intervalo definido).")
+        continue
+        
+    a, b = caso["intervalo"]
+    raiz, iteraciones, error = falsa_posicion(caso["f"], a, b)
+    
+    if raiz is not None:
+        print(f"Raíz: {raiz:.6f} | Iteraciones: {iteraciones} | Error: {error:.2e}")
+    else:
+        print("Resultado: Falló (no hay cambio de signo en el intervalo).")

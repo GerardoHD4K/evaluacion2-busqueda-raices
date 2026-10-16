@@ -1,7 +1,7 @@
 import numpy as np
 from funciones import CASOS_DE_PRUEBA
 
-def newtom_raphson(f, df, x0, tol=1e-6, max_iter=100):
+def newton_raphson(f, df, x0, tol=1e-6, max_iter=100):
     x_act = float(x0)
     historial_error = []
 
@@ -27,7 +27,7 @@ def newtom_raphson(f, df, x0, tol=1e-6, max_iter=100):
 if __name__ == "__main__":
     print("Prueba Metodo Newton Raphson")
     for nombre, datos in CASOS_DE_PRUEBA.items():
-        raiz, iters, errores, conv, estado = newtom_raphson(datos["f"], datos["df"], datos["x0"] )
+        raiz, iters, errores, conv, estado = newton_raphson(datos["f"], datos["df"], datos["x0"] )
 
         err_final = errores[-1] if errores else 0.0
-        print(f"{nombre:<15} Raiz:{raiz:.6} Iter:{iters:<3} Error:{err_final:.6f} {estado}")
+        print(f"{nombre:<15} Raiz:{raiz:.6f} Iter:{iters:<3} Error:{err_final:.6f} {estado}")

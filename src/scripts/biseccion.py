@@ -39,7 +39,7 @@ def biseccion (f, intervalo, tol=1e-6, max_inter=100):
         else:
             a = xr
             fa = fxr
-        x_a  = xr
+        x_ant  = xr
     return xr, max_inter, historial_error, False, "Tope de iteraciones alcanzado"
 
 if __name__ == "__main__":
@@ -52,4 +52,4 @@ if __name__ == "__main__":
             print(f"{nombre:<15} Raiz: {raiz:.6f} Iter:{iters:<3} Error:{err_final:.6f} {estado}")
         else: 
             print(f"{nombre:<15} Raiz {'---':<8} Iter: {iters:<3} Error: {'---':<8} {estado}")
-            
+

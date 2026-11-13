@@ -19,11 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Prueba de ejemplo
-        run: |
-          echo "Ejecutando workflow de prueba en $GITHUB_REPOSITORY..."
-          ls -la
-          echo "Todo OK."
+      - name: Ejecutar hola mundo en Python
+        run: python3 hola.py
 
       - name: Enviar notificación a Telegram
         if: always()
